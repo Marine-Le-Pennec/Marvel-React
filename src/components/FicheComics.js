@@ -1,7 +1,7 @@
 import React from "react";
 
 const FicheComics = ({ elem }) => {
-  console.log("l'id des perso : ", elem.id);
+  // console.log("l'id des perso : ", elem.id);
   return (
     <div className="flexCard">
       <div className="card">

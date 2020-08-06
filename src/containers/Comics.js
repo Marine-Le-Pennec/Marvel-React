@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 import FicheComics from "../components/FicheComics";
 import Pagination from "../components/Pagination";
+import SearchTitle from "../components/SearchTitle";
 
-const Comics = ({ setData, data, setIsLoading, isLoading, page, setPage }) => {
-  const [offset, setOffset] = useState(0);
+const Comics = ({
+  setData,
+  data,
+  setIsLoading,
+  isLoading,
+  page,
+  setPage,
+  offset,
+  setOffset,
+}) => {
   // Récupération des données
   const fetchData = async () => {
     const response = await axios.get(
@@ -27,6 +36,8 @@ const Comics = ({ setData, data, setIsLoading, isLoading, page, setPage }) => {
       <div style={{ textAlign: "center" }}>
         <h1 style={{ fontSize: "80px" }}>Comics</h1>
       </div>
+
+      <SearchTitle data={data} setData={setData} offset={offset}></SearchTitle>
       <div>
         {data.data.results.map((elem, index) => {
           return <FicheComics elem={elem}></FicheComics>;

@@ -15,6 +15,11 @@ function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [name, setName] = useState("");
+  const [offset, setOffset] = useState(0);
+
+  // fonction search
+
   return (
     <div className="App">
       <Router>
@@ -26,8 +31,12 @@ function App() {
               setData={setData}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
-              // page={page}
-              // setPage={setPage}
+              page={page}
+              setPage={setPage}
+              offset={offset}
+              setOffset={setOffset}
+              name={name}
+              setName={setName}
             ></Characters>
           </Route>
 
@@ -48,6 +57,8 @@ function App() {
               setIsLoading={setIsLoading}
               page={page}
               setPage={setPage}
+              offset={offset}
+              setOffset={setOffset}
             ></Comics>
           </Route>
 

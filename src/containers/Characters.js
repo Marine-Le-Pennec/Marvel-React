@@ -3,19 +3,35 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import FicheCara from "../components/FicheCara";
+import Pagination from "../components/Pagination";
+import Search from "../components/Search";
 
-const Characters = ({ setData, data, setIsLoading, isLoading }) => {
+const Characters = ({
+  setData,
+  data,
+  setIsLoading,
+  isLoading,
+  offset,
+  setOffset,
+  page,
+  setPage,
+  name,
+  setName,
+}) => {
   // Récupération des données
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:3100/characters");
+    const response = await axios.get(
+      `http://localhost:3100/characters?&offset=${offset}`
+    );
 
     setData(response.data);
+    console.log(response.data);
     setIsLoading(false);
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [offset, name]);
 
   return isLoading ? (
     <span>En cours de chargement...</span>
@@ -25,9 +41,18 @@ const Characters = ({ setData, data, setIsLoading, isLoading }) => {
         <h1 style={{ fontSize: "80px" }}>MARVEL CHARACTERS</h1>
       </div>
 
+      <Search
+        name={name}
+        setName={setName}
+        data={data}
+        setData={setData}
+        offset={offset}
+      ></Search>
+
       <div>
         {data.data.results.map((elem, index) => {
-          // console.log("l'id est égal à : ", elem.id);
+          // console.log("l'id est égal à : ", elem.name);
+
           return (
             <Link
               style={{ textTransform: "none", color: "black" }}
@@ -39,6 +64,14 @@ const Characters = ({ setData, data, setIsLoading, isLoading }) => {
           );
         })}
       </div>
+
+      <Pagination
+        offset={offset}
+        setOffset={setOffset}
+        data={data}
+        page={page}
+        setPage={setPage}
+      ></Pagination>
     </>
   );
 };
