@@ -4,13 +4,15 @@
 }
 
 header {
-  max-width: 1429px;
+  width: 100vw;
   height: 250px;
+  display: flex;
+  text-align: center;
 }
 
 header img {
   height: 100%;
-  width: 100%;
+  width: 60%;
   /* object-fit: cover; */
   object-position: center;
 }
@@ -71,6 +73,13 @@ header img {
 .card:hover {
   transform: scale(1.1, 1.1);
   transition-duration: 700ms;
+  /* -moz-transform: scale(1.05) slow;
+  -webkit-transform: scale(1.05) slow;
+  -o-transform: scale(1.05) slow;
+  -ms-transform: scale(1.05) slow;
+  -webkit-transform: scale(1.05) slow;
+  transform: scale(1.05) slow;
+  -webkit-transition: transform 2s ease-in-out; */
 }
 
 .picture img {

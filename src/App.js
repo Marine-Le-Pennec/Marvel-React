@@ -14,6 +14,7 @@ import CharaComics from "./containers/CharaComics";
 function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
   return (
     <div className="App">
       <Router>
@@ -25,6 +26,8 @@ function App() {
               setData={setData}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
+              // page={page}
+              // setPage={setPage}
             ></Characters>
           </Route>
 
@@ -43,6 +46,8 @@ function App() {
               setData={setData}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
+              page={page}
+              setPage={setPage}
             ></Comics>
           </Route>
 
