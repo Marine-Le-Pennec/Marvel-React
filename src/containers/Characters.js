@@ -55,6 +55,14 @@ const Characters = ({
         offset={offset}
       ></Search>
 
+      <Pagination
+        offset={offset}
+        setOffset={setOffset}
+        data={data}
+        page={page}
+        setPage={setPage}
+      ></Pagination>
+
       <div className="caracter-container">
         {data.data.results.map((elem, index) => {
           console.log("l'id de l'element : ", elem.id);

@@ -33,9 +33,9 @@ function App() {
     setFavorisCara(JSON.parse(Cookies.get("favCara")));
   }, []);
 
-  // useEffect(() => {
-  //   setFavorisComics(JSON.parse(Cookies.get("favComics")));
-  // }, []);
+  useEffect(() => {
+    setFavorisComics(JSON.parse(Cookies.get("favComics")));
+  }, []);
 
   // fonction search
 

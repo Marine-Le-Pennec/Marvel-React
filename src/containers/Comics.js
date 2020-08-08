@@ -44,6 +44,14 @@ const Comics = ({
       </div>
 
       <SearchTitle data={data} setData={setData} offset={offset}></SearchTitle>
+      <Pagination
+        offset={offset}
+        setOffset={setOffset}
+        data={data}
+        page={page}
+        setPage={setPage}
+      ></Pagination>
+
       <div className="caracter-container">
         {data.data.results.map((elem, index) => {
           return (

@@ -3,9 +3,10 @@ import React from "react";
 const Pagination = ({ data, offset, setOffset, page, setPage }) => {
   return (
     <div>
-      <div>
+      <div className="pagination">
         {data.data.offset > 0 && (
           <button
+            className="page-button"
             onClick={() => {
               setOffset(offset - 100);
               setPage(page - 1);
@@ -14,9 +15,13 @@ const Pagination = ({ data, offset, setOffset, page, setPage }) => {
             Page précédente
           </button>
         )}
-        <span style={{ width: "30px" }}>{page}</span>
+        <div className="page">
+          <span style={{ width: "30px" }}>{page}</span>
+        </div>
+
         {data.data.offset < data.data.total && (
           <button
+            className="page-button"
             onClick={() => {
               setOffset(offset + 100);
               setPage(page + 1);
