@@ -1,7 +1,7 @@
 import React from "react";
 
 const FicheCharaComics = ({ elem }) => {
-  console.log(elem);
+  // console.log(elem);
   return (
     <div className="flexCard">
       <div className="card">

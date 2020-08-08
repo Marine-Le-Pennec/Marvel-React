@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import FicheCara from "../components/FicheCara";
 import Pagination from "../components/Pagination";
 import Search from "../components/Search";
+import spinner from "../assets/img/spinner.gif";
 
 const Characters = ({
   setData,
@@ -17,6 +17,8 @@ const Characters = ({
   setPage,
   name,
   setName,
+  favorisCara,
+  setFavorisCara,
 }) => {
   // Récupération des données
   const fetchData = async () => {
@@ -34,7 +36,9 @@ const Characters = ({
   }, [offset, name]);
 
   return isLoading ? (
-    <span>En cours de chargement...</span>
+    <div className="spinner-container">
+      <img src={spinner} alt="spinner" className="spinner"></img>
+    </div>
   ) : (
     <>
       <div style={{ textAlign: "center" }}>
@@ -51,16 +55,15 @@ const Characters = ({
 
       <div>
         {data.data.results.map((elem, index) => {
-          // console.log("l'id est égal à : ", elem.name);
+          console.log("l'id de l'element : ", elem.id);
 
           return (
-            <Link
-              style={{ textTransform: "none", color: "black" }}
+            <FicheCara
+              elem={elem}
               key={elem.id}
-              to={`/character/${elem.id}`}
-            >
-              <FicheCara elem={elem}></FicheCara>;
-            </Link>
+              favorisCara={favorisCara}
+              setFavorisCara={setFavorisCara}
+            ></FicheCara>
           );
         })}
       </div>

@@ -5,6 +5,8 @@ import FicheComics from "../components/FicheComics";
 import Pagination from "../components/Pagination";
 import SearchTitle from "../components/SearchTitle";
 
+import spinner from "../assets/img/spinner.gif";
+
 const Comics = ({
   setData,
   data,
@@ -14,6 +16,8 @@ const Comics = ({
   setPage,
   offset,
   setOffset,
+  favorisComics,
+  setFavorisComics,
 }) => {
   // Récupération des données
   const fetchData = async () => {
@@ -30,7 +34,9 @@ const Comics = ({
   }, [offset]);
 
   return isLoading ? (
-    <span>En cours de chargement...</span>
+    <div className="spinner-container">
+      <img src={spinner} alt="spinner" className="spinner"></img>
+    </div>
   ) : (
     <>
       <div style={{ textAlign: "center" }}>
@@ -40,7 +46,13 @@ const Comics = ({
       <SearchTitle data={data} setData={setData} offset={offset}></SearchTitle>
       <div>
         {data.data.results.map((elem, index) => {
-          return <FicheComics elem={elem}></FicheComics>;
+          return (
+            <FicheComics
+              elem={elem}
+              favorisComics={favorisComics}
+              setFavorisComics={setFavorisComics}
+            ></FicheComics>
+          );
         })}
       </div>
       <Pagination

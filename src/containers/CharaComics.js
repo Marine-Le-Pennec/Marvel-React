@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import FicheCharaComics from "../components/FicheCharaComics";
 
+import spinner from "../assets/img/spinner.gif";
+
 const CharaComics = ({ setData, data, isLoading, setisLoading }) => {
   const { id } = useParams();
 
+  console.log("début characomics");
   // Récupération des données via axios
 
   useEffect(() => {
@@ -16,14 +19,17 @@ const CharaComics = ({ setData, data, isLoading, setisLoading }) => {
       setData(response.data);
       setisLoading(false);
     };
+
     fetchData();
-  }, []);
+  }, [id]);
 
   return isLoading ? (
-    <span>En cours de chargement...</span>
+    <div className="spinner-container">
+      <img src={spinner} alt="spinner" className="spinner"></img>
+    </div>
   ) : (
     <div>
-      {data.data.results.map((elem, index) => {
+      {data.data.results.map((elem) => {
         return <FicheCharaComics elem={elem}></FicheCharaComics>;
       })}
       ;
