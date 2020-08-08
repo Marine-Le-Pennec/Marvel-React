@@ -29,9 +29,14 @@ const CharaComics = ({ setData, data, isLoading, setisLoading }) => {
     </div>
   ) : (
     <div>
-      {data.data.results.map((elem) => {
-        return <FicheCharaComics elem={elem}></FicheCharaComics>;
-      })}
+      <div style={{ textAlign: "center" }}>
+        <h1 style={{ fontSize: "80px", marginTop: "100px" }}>RELATED COMICS</h1>
+      </div>
+      <div style={{ display: "flex" }}>
+        {data.data.results.map((elem) => {
+          return <FicheCharaComics elem={elem}></FicheCharaComics>;
+        })}
+      </div>
       ;
     </div>
   );
