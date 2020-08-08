@@ -38,13 +38,13 @@ const Comics = ({
       <img src={spinner} alt="spinner" className="spinner"></img>
     </div>
   ) : (
-    <>
+    <div className="container">
       <div style={{ textAlign: "center" }}>
-        <h1 style={{ fontSize: "80px" }}>Comics</h1>
+        <h1 style={{ fontSize: "80px", marginTop: "100px" }}>Comics</h1>
       </div>
 
       <SearchTitle data={data} setData={setData} offset={offset}></SearchTitle>
-      <div>
+      <div className="caracter-container">
         {data.data.results.map((elem, index) => {
           return (
             <FicheComics
@@ -62,7 +62,7 @@ const Comics = ({
         page={page}
         setPage={setPage}
       ></Pagination>
-    </>
+    </div>
   );
 };
 

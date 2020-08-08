@@ -154,6 +154,77 @@ header img {
   font-size: 22px;
 }
 
+/* Favoris */
+.favorisContainer {
+  text-align: center;
+}
+.favorisTitle {
+  font-size: 60px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.favContents {
+  height: 200px;
+  width: 200px;
+}
+
+.favCaraComics {
+  display: flex;
+  justify-content: center;
+}
+.favCard {
+  display: flex;
+  width: 1200px;
+  border-radius: 20px;
+  margin-bottom: 100px;
+  box-shadow: 0 25px 50px -12px rgba(4, 7, 136, 0.25);
+}
+
+.favCard:hover {
+  transform: scale(1.1, 1.1);
+  transition-duration: 700ms;
+}
+.favDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.favDescription h2 {
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+.favDescription p {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.favDescription button {
+  font-size: 20px;
+  width: 150px;
+  border-style: none;
+  background-color: rgb(139, 18, 18);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.illustration {
+  width: 200px;
+  height: 200px;
+}
+
+.illustration img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 20px 0 0 20px;
+}
 /* Search zone */
 
 .search-container {

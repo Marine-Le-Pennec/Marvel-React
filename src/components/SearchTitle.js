@@ -9,6 +9,7 @@ const SearchTitle = ({ data, setData, offset }) => {
       <div className="search-container">
         <div className="search">
           <input
+            placeholder="Searching a comic"
             type="search"
             onChange={async (event) => {
               //   console.log(name);

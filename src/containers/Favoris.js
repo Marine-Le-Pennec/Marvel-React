@@ -14,14 +14,12 @@ const Favoris = ({
 
   //   console.log(favoris);
   return (
-    <div>
-      <h1>Favoris</h1>
-
-      <h2>Favorites characters</h2>
+    <div className="favorisContainer">
+      <h2 className="favorisTitle">Favorites characters</h2>
       {favorisCara.map((elem, index) => {
         console.log("favorite elem :", elem);
         return (
-          <div>
+          <div className="favCaraComics">
             <FavCara
               elem={elem}
               index={index}
@@ -32,7 +30,7 @@ const Favoris = ({
         );
       })}
 
-      <h2>Favorites comics</h2>
+      <h2 className="favoriteTitle">Favorites comics</h2>
       {favorisComics.map((elem, index) => {
         return (
           <div>
