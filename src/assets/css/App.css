@@ -75,10 +75,7 @@ header img {
   height: 200px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
 }
-.section:hover {
-  transform: scale(1.1, 1.1);
-  transition-duration: 700ms;
-}
+
 .section img {
   width: 100%;
   height: 100%;
@@ -93,60 +90,65 @@ header img {
   margin-bottom: 20px;
   margin-top: 40px;
 }
+
+.caracter-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 1400px;
+  height: 100vh; */
+  justify-content: center;
+}
 .flexCard {
   display: flex;
+  margin-right: 40px;
+  width: 600px;
+  margin-bottom: 50px;
+  box-shadow: 0 25px 50px -12px rgba(4, 7, 136, 0.25);
+}
+
+.flexCard:hover {
+  transform: scale(1.1, 1.1);
+  transition-duration: 700ms;
+}
+.card-container {
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 .card {
   border: lightgray solid 1px;
   border-radius: 6px;
-  box-shadow: 0 25px 50px -12px rgba(4, 7, 136, 0.25);
-  width: 1000px;
+
+  width: 300px;
   height: 300px;
-  margin: 60px auto;
+  /* border: red solid 3px; */
   display: flex;
   box-sizing: border-box;
-  position: relative;
 }
 
 .fav {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 38px;
+  left: 10px;
   font-size: 40px;
   color: red;
 }
 
-.card:hover {
-  transform: scale(1.1, 1.1);
-  transition-duration: 700ms;
-  /* -moz-transform: scale(1.05) slow;
-  -webkit-transform: scale(1.05) slow;
-  -o-transform: scale(1.05) slow;
-  -ms-transform: scale(1.05) slow;
-  -webkit-transform: scale(1.05) slow;
-  transform: scale(1.05) slow;
-  -webkit-transition: transform 2s ease-in-out; */
+.picture {
+  width: 100%;
 }
 
-.picture img {
-  height: 300px;
-  border-radius: 6px;
-  margin-right: 20px;
+.flexCard h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .description {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px 0 10px;
 }
-
-.description h2 {
-  font-size: 40px;
-  font-weight: bold;
-}
-
 .description p {
   margin-bottom: 100px;
   font-size: 22px;
@@ -157,10 +159,11 @@ header img {
 .search-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .search {
-  width: 300px;
   height: 100px;
   /* border: blue solid 2px; */
   display: flex;
@@ -169,12 +172,13 @@ header img {
 }
 
 .search input {
-  width: 300px;
+  width: 600px;
   height: 70px;
   border-radius: 6px;
   background-color: rgb(225, 225, 236);
   border-style: none;
   font-size: 30px;
+  text-align: center;
 }
 
 .Link {

@@ -40,9 +40,11 @@ const Characters = ({
       <img src={spinner} alt="spinner" className="spinner"></img>
     </div>
   ) : (
-    <>
+    <div className="container">
       <div style={{ textAlign: "center" }}>
-        <h1 style={{ fontSize: "80px" }}>MARVEL CHARACTERS</h1>
+        <h1 style={{ fontSize: "80px", marginTop: "100px" }}>
+          MARVEL CHARACTERS
+        </h1>
       </div>
 
       <Search
@@ -53,7 +55,7 @@ const Characters = ({
         offset={offset}
       ></Search>
 
-      <div>
+      <div className="caracter-container">
         {data.data.results.map((elem, index) => {
           console.log("l'id de l'element : ", elem.id);
 
@@ -75,7 +77,7 @@ const Characters = ({
         page={page}
         setPage={setPage}
       ></Pagination>
-    </>
+    </div>
   );
 };
 

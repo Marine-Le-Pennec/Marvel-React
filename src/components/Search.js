@@ -9,6 +9,7 @@ const Search = ({ setData, offset }) => {
       <div className="search-container">
         <div className="search">
           <input
+            placeholder="Searching a character"
             type="search"
             onChange={async (event) => {
               //    setName(event.target.value);
