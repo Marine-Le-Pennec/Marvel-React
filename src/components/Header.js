@@ -10,7 +10,10 @@ const Header = () => {
           {" "}
           <img src={logo} alt="Marvel"></img>
         </Link>
-        <div className="bar"> WELCOME IN OUR MARVEL DATABASE</div>
+        <div className="bar" style={{ marginTop: "30px" }}>
+          {" "}
+          WELCOME IN OUR MARVEL DATABASE
+        </div>
       </header>
     </div>
   );
