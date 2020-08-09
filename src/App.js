@@ -40,11 +40,15 @@ function App() {
   const [user, setUser] = useState(token || null);
 
   useEffect(() => {
-    setFavorisCara(JSON.parse(Cookies.get("favCara")));
+    if (Cookies.get("favCara")) {
+      setFavorisCara(JSON.parse(Cookies.get("favCara")));
+    }
   }, []);
 
   useEffect(() => {
-    setFavorisComics(JSON.parse(Cookies.get("favComics")));
+    if (Cookies.get("favComics")) {
+      setFavorisComics(JSON.parse(Cookies.get("favComics")));
+    }
   }, []);
 
   // fonction search
