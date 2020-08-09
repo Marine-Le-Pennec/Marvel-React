@@ -10,6 +10,8 @@ const Home = () => {
       <main className="mainHome">
         <section className="menu">
           <img src={iron} alt="iron-man" className="iron"></img>
+
+          <Link to="/user/signup">Wanna join the Team ?</Link>
           <Link to="/characters" className="Link">
             <h2 className="title">CHARACTERS</h2>
             <div className="section">

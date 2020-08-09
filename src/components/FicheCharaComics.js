@@ -1,5 +1,4 @@
 import React from "react";
-import star from "../assets/img/star.png";
 
 const FicheCharaComics = ({ elem }) => {
   // console.log(elem);

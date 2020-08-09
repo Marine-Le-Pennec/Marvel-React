@@ -19,7 +19,7 @@ const Search = ({ setData, offset }) => {
               str += event.target.value;
               if (str.length > 2) {
                 const response = await axios.get(
-                  `http://localhost:3100/characters?name=${event.target.value}&offset=${offset}`
+                  `https://marvel-express-backend.herokuapp.com/characters?name=${event.target.value}&offset=${offset}`
                 );
                 // console.log(response.data);
                 setData(response.data);

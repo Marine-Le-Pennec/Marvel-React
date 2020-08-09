@@ -20,18 +20,18 @@ const Comics = ({
   setFavorisComics,
 }) => {
   // Récupération des données
-  const fetchData = async () => {
-    const response = await axios.get(
-      `http://localhost:3100/comics?offset=${offset}`
-    );
-
-    setData(response.data);
-    setIsLoading(false);
-  };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        `https://marvel-express-backend.herokuapp.com/comics?offset=${offset}`
+      );
+
+      setData(response.data);
+      setIsLoading(false);
+    };
     fetchData();
-  }, [offset]);
+  }, [offset, setData, setIsLoading]);
 
   return isLoading ? (
     <div className="spinner-container">

@@ -13,6 +13,8 @@ import Characters from "./containers/Characters";
 import Comics from "./containers/Comics";
 import CharaComics from "./containers/CharaComics";
 import Favoris from "./containers/Favoris";
+import Signup from "./containers/Signup";
+import Login from "./containers/Login";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +23,8 @@ import { faReact } from "@fortawesome/free-brands-svg-icons";
 library.add(faHeart, faReact);
 
 function App() {
+  const token = Cookies.get("token");
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -28,6 +32,12 @@ function App() {
   const [offset, setOffset] = useState(0);
   const [favorisComics, setFavorisComics] = useState([]);
   const [favorisCara, setFavorisCara] = useState([]);
+
+  const [pseudo, setPseudo] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkPassword, setCheckPassword] = useState("");
+  const [user, setUser] = useState(token || null);
 
   useEffect(() => {
     setFavorisCara(JSON.parse(Cookies.get("favCara")));
@@ -44,6 +54,25 @@ function App() {
       <Router>
         <Header></Header>
         <Switch>
+          <Route path="/user/log_in">
+            <Login></Login>
+          </Route>
+
+          <Route path="/user/signup">
+            <Signup
+              pseudo={pseudo}
+              setPseudo={setPseudo}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              checkPassword={checkPassword}
+              setCheckPassword={setCheckPassword}
+              user={user}
+              setUser={setUser}
+            ></Signup>
+          </Route>
+
           <Route path="/characters">
             <Characters
               data={data}
@@ -66,7 +95,7 @@ function App() {
               data={data}
               setData={setData}
               isLoading={isLoading}
-              setisLoading={setIsLoading}
+              setIsLoading={setIsLoading}
             ></CharaComics>
           </Route>
 

@@ -21,19 +21,19 @@ const Characters = ({
   setFavorisCara,
 }) => {
   // Récupération des données
-  const fetchData = async () => {
-    const response = await axios.get(
-      `http://localhost:3100/characters?&offset=${offset}`
-    );
-
-    setData(response.data);
-    console.log(response.data);
-    setIsLoading(false);
-  };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        `https://marvel-express-backend.herokuapp.com/characters?&offset=${offset}`
+      );
+
+      setData(response.data);
+      console.log(response.data);
+      setIsLoading(false);
+    };
     fetchData();
-  }, [offset, name]);
+  }, [offset, name, setData, setIsLoading]);
 
   return isLoading ? (
     <div className="spinner-container">

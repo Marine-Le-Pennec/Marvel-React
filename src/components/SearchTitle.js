@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const SearchTitle = ({ data, setData, offset }) => {
+const SearchTitle = ({ setData, offset }) => {
   let str = "";
 
   return (
@@ -18,7 +18,7 @@ const SearchTitle = ({ data, setData, offset }) => {
               str += event.target.value;
               if (str.length > 2) {
                 const response = await axios.get(
-                  `http://localhost:3100/comics?title=${event.target.value}&offset=${offset}`
+                  `https://marvel-express-backend.herokuapp.com/comics?title=${event.target.value}&offset=${offset}`
                 );
                 // console.log(response.data);
                 setData(response.data);

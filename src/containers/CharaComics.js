@@ -6,7 +6,7 @@ import FicheCharaComics from "../components/FicheCharaComics";
 
 import spinner from "../assets/img/spinner.gif";
 
-const CharaComics = ({ setData, data, isLoading, setisLoading }) => {
+const CharaComics = ({ setData, data, isLoading, setIsLoading }) => {
   const { id } = useParams();
 
   console.log("début characomics");
@@ -14,14 +14,16 @@ const CharaComics = ({ setData, data, isLoading, setisLoading }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`http://localhost:3100/character/${id}`);
+      const response = await axios.get(
+        `https://marvel-express-backend.herokuapp.com/character/${id}`
+      );
       // console.log(response.data);
       setData(response.data);
-      setisLoading(false);
+      setIsLoading(false);
     };
 
     fetchData();
-  }, [id]);
+  }, [id, setData, setIsLoading]);
 
   return isLoading ? (
     <div className="spinner-container">
