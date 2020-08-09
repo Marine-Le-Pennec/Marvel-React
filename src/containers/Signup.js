@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
+import { baseUrl } from "../globals";
 
 const Signup = ({
   password,
@@ -45,14 +46,11 @@ const Signup = ({
       alert("Mot de passe non identiques");
     } else {
       try {
-        const response = await axios.post(
-          "https://marvel-express-backend.herokuapp.com/user/signup",
-          {
-            username: pseudo,
-            email: email,
-            password: password,
-          }
-        );
+        const response = await axios.post(`${baseUrl}/user/signup`, {
+          username: pseudo,
+          email: email,
+          password: password,
+        });
 
         if (!response.data.token) {
           alert("Utilisateur déjà existant");

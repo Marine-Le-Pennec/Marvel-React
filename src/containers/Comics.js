@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
+import { baseUrl } from "../globals";
 import FicheComics from "../components/FicheComics";
 import Pagination from "../components/Pagination";
 import SearchTitle from "../components/SearchTitle";
@@ -23,9 +24,7 @@ const Comics = ({
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://marvel-express-backend.herokuapp.com/comics?offset=${offset}`
-      );
+      const response = await axios.get(`${baseUrl}/comics?offset=${offset}`);
 
       setData(response.data);
       setIsLoading(false);

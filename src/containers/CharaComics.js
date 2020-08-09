@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import { baseUrl } from "../globals";
+
 import FicheCharaComics from "../components/FicheCharaComics";
 
 import spinner from "../assets/img/spinner.gif";
@@ -14,9 +16,7 @@ const CharaComics = ({ setData, data, isLoading, setIsLoading }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://marvel-express-backend.herokuapp.com/character/${id}`
-      );
+      const response = await axios.get(`${baseUrl}/character/${id}`);
       // console.log(response.data);
       setData(response.data);
       setIsLoading(false);
