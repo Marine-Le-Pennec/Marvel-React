@@ -6,7 +6,9 @@ const FicheCharaComics = ({ elem }) => {
     <div>
       <div
         className="flexCard"
-        style={{ margin: "70px 0 40px 80px", flexWrap: "flex-wrap" }}
+        style={{
+          margin: "70px 0 40px 80px",
+        }}
       >
         <div className="card-container">
           <div className="card">
