@@ -19,7 +19,7 @@ const Favoris = ({
         {" "}
         <h2 className="favorisTitle">Favorites characters</h2>
         {favorisCara.map((elem, index) => {
-          console.log("favorite elem :", elem);
+          
           return (
             <div className="favCaraComics">
               <FavCara

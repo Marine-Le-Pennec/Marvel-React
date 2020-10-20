@@ -66,7 +66,6 @@ const Characters = ({
 
       <div className="caracter-container">
         {data.data.results.map((elem, index) => {
-          console.log("l'id de l'element : ", elem.id);
 
           return (
             <FicheCara

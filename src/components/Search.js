@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {baseUrl} from "../globals";
 
 const Search = ({ setData, offset }) => {
   let str = "";
@@ -12,16 +13,14 @@ const Search = ({ setData, offset }) => {
             placeholder="Searching a character"
             type="search"
             onChange={async (event) => {
-              //    setName(event.target.value);
-              //   console.log(name);
 
               //   Faire la requete si l'utilisateur a entré au moins 2 lettres
               str += event.target.value;
               if (str.length > 2) {
                 const response = await axios.get(
-                  `$baseUrl/characters?name=${event.target.value}&offset=${offset}`
+                  `${baseUrl}/characters?name=${event.target.value}&offset=${offset}`
                 );
-                // console.log(response.data);
+               
                 setData(response.data);
               }
             }}
